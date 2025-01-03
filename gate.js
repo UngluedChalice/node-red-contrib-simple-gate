@@ -57,8 +57,8 @@ module.exports = function(RED) {
             context.get('state',storeName,function(err,state) {
                 if (err) {
                     node.error('message error reading from context store: ' + storeName)
-                } else if (typeof msg.topic === 'string' && 
-                        msg.topic.toLowerCase() === node.controlTopic) { // change state
+                } else if (typeof msg.control === 'string' && 
+                        msg.control.toLowerCase() === node.controlTopic) { // change state
                     if (typeof msg.payload === 'undefined' || msg.payload === null) {
                         msg.payload = '';
                     }
